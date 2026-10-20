@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Conversa</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="Ficha06_extra_estilo.css">	
+        <script type="text/javascript">
+            function calcMassaCorp() {
+                var valor1 = parseFloat(document.getElementById("Massa").value);
+                var valor2 = parseFloat(document.getElementById("Altura").value);
+
+                if (isNaN(valor1) || isNaN(valor2) || valor1 <= 0 || valor2 <= 0) {
+                    alert("Introduzio valores válidos!");
+                    document.getElementById("Massa").style.backgroundColor = "red";
+                    document.getElementById("Altura").style.backgroundColor = "red";
+                } else {
+                    document.getElementById("Massa").style.backgroundColor = "white";
+                    document.getElementById("Altura").style.backgroundColor = "white";
+                    var media = valor1 / (valor2*valor2);
+                    document.getElementById("media").value = media;
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1><p>Calculo de Índice de Massa Corporal</p></h1>
+
+        <form action="" method="post">
+            <label>Massa</label>
+            <input id="Massa" type="text" value="0"/>
+            <br/>
+
+            <label>Altura</label>
+            <input id="Altura" type="text" value="0"/>
+            <br/>
+
+            <label>imc</label>
+            <input id="media" type="text" value="0" readonly/>
+            <br/>
+
+            <input id="input_button" type="button" value="Calcular" onclick="calcMassaCorp()"/>
+        </form>
+        <table border>
+		<caption><h2> Tabela de IMC </h2></caption>
+		<thead>
+		<tr>
+			<td>Resultado</td>
+			<td>Situação</td>
+    
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>Abaixo de 17</td>
+			<td>Muito abaixo do peso</td>  
+		</tr>
+		<tr>
+			<td>entre 17 e 18,49</td>
+			<td>abaixo do peso</td>
+		</tr>
+		<tr>
+			<td>entre 18,5 e 24,99</td>
+			<td>Peso normal</td>
+		</tr>
+		<tr>
+			<td>entre 25e 29,99</td>
+			<td>Acima do peso</td>
+		</tr>
+		<tr>
+			<td>entre 30 e 34,99</td>
+			<td>Obesidade 1</td>
+		</tr>
+		<tr>
+			<td>entre 35 e 39,99</td>
+			<td>Obesidade 2</td>
+		</tr>
+		<tr>
+			<td>Acima de 40</td>
+			<td>Obesidade 3</td>
+		</tr>
+		</tbody>
+		<tfoot>
+		
+		</tfoot>
+		</table>
+    </body>
+</html>
